@@ -64,10 +64,6 @@
   .section-head h2{font-size:clamp(30px,4vw,44px);color:var(--text-dark);margin-top:12px;}
   .section-head.on-dark h2{color:var(--white);}
 
-  /* signature scale-line motif */
-  .scale-mark{width:34px;height:20px;margin:0 auto;opacity:0.9;}
-  .scale-mark svg{width:100%;height:100%;display:block;}
-
   /* ===== NAV ===== */
   header{
     position:fixed;top:0;left:0;right:0;z-index:100;
@@ -127,7 +123,7 @@
 
   /* ===== HERO ===== */
   .hero{
-    position:relative;min-height:100vh;display:flex;align-items:center;
+    position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;
     background:var(--ink);overflow:hidden;padding-top:70px;
   }
   .hero-bg{
@@ -135,90 +131,70 @@
     transform: translateZ(0);
     position:absolute;inset:0;
     background-image: url('hero-premium-desktop.jpg');
-    background-size:cover;background-position:left center; background-repeat: no-repeat;
+    background-size:cover;background-position:center;background-repeat: no-repeat;
   }
-@media (max-width: 768px) {
-		    .hero-bg {
-		      background-image: url('hero-mariana-mobile-poster.jpg');
-		      background-position: center top;
-		    }
-		    .hero-bg::after {
-		      background: linear-gradient(0deg, rgba(10,22,40,0.98) 0%, rgba(10,22,40,0.8) 30%, rgba(10,22,40,0.3) 60%, rgba(10,22,40,0) 100%) !important;
-		    }
-		    .hero-inner {
-		      padding: 80px 20px 40px;
-		      align-items: center;
-		      justify-content: flex-end;
-		      text-align: center;
-		      min-height: 100vh;
-		    }
-    .hero-inner .eyebrow, .hero h1, .hero p {
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
+  @media (max-width: 768px) {
+    .hero-bg {
+      background-image: url('hero-mariana-mobile-poster.jpg');
+      background-position: center top;
     }
-    .hero h1 {
-      font-size: clamp(24px, 6vw, 38px);
-      line-height: 1.12;
-      max-width: 100%;
-      margin-top: 14px;
-    }
-    .hero p {
-      font-size: 13.5px;
-      max-width: 100%;
-      margin-top: 14px;
-    }
-    .hero .btn-primary, .hero .btn-outline {
-      margin-top: 24px;
-      padding: 13px 22px;
-      font-size: 11px;
-    }
-    .hero-scroll {
-      display: none;
-    }
-    #about-photo {
-      content: url('about-mariana.jpg');
+    .hero-bg::after {
+      background: linear-gradient(0deg, rgba(10,22,40,0.98) 0%, rgba(10,22,40,0.85) 40%, rgba(10,22,40,0.5) 70%, rgba(10,22,40,0) 100%) !important;
     }
   }
 
   .hero-bg::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(270deg, rgba(10,22,40,0.94) 0%, rgba(10,22,40,0.85) 15%, rgba(10,22,40,0.6) 30%, rgba(10,22,40,0.25) 50%, rgba(10,22,40,0) 70%);
+    background:linear-gradient(270deg, rgba(10,22,40,0.92) 0%, rgba(10,22,40,0.85) 20%, rgba(10,22,40,0.4) 50%, rgba(10,22,40,0) 80%);
   }
-  .hero-inner{position:relative;z-index:2;width:100%;min-height:85vh;padding:100px 32px 70px;max-width:1240px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;}
-  .hero-inner .eyebrow{color:var(--gray-light);}
-  .hero h1{
-    color:var(--white);font-size:clamp(32px,4.5vw,62px);line-height:1.1;
-    max-width:680px;margin-top:18px;font-weight:500;
-  }
-  .hero h1 em{
-    font-style:italic;color:var(--accent);font-weight:400;
-    display:block;
-  }
-  .hero p{
-    color:rgba(255,255,255,0.75);font-size:15px;line-height:1.7;
-    max-width:400px;margin-top:20px;font-weight:300;
-  }
+  .hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;}
+  .hero-buttons{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
   .btn-primary{
-    display:inline-block;margin-top:38px;
+    display:inline-block;
     background:var(--accent);color:var(--white);
     padding:16px 34px;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;
     font-weight:500;transition:all .35s ease;border:1px solid var(--accent);
   }
   .btn-primary:hover{background:transparent;color:var(--accent);}
   .btn-outline{
-    display:inline-block;margin-top:38px;margin-left:18px;
+    display:inline-block;
     color:var(--white);border:1px solid rgba(255,255,255,0.4);
     padding:16px 30px;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;
     transition:all .35s ease;
   }
   .btn-outline:hover{border-color:var(--accent);color:var(--accent);}
-  .hero-scroll{
-    position:absolute;bottom:34px;left:32px;z-index:2;
-    display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.5);
-    font-size:10.5px;letter-spacing:0.28em;text-transform:uppercase;
+
+  /* ===== INTRO SECTION ===== */
+  .intro{background:var(--paper);padding:100px 0;}
+  .intro-content{max-width:900px;margin:0 auto;text-align:center;}
+  .intro-eyebrow{
+    font-family:'Jost',sans-serif;
+    font-size:11.5px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--navy);
+    font-weight:500;
+    margin-bottom:16px;
   }
-  .hero-scroll .line{width:32px;height:1px;background:rgba(255,255,255,0.4);}
+  .intro-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(32px,4.5vw,62px);
+    line-height:1.1;
+    color:var(--text-dark);
+    margin-bottom:24px;
+    font-weight:500;
+  }
+  .intro-title em{
+    font-style:italic;
+    color:var(--accent);
+    font-weight:400;
+  }
+  .intro-text{
+    font-size:15px;
+    line-height:1.8;
+    color:var(--text-mute);
+    font-weight:300;
+  }
 
   /* ===== AREAS ===== */
   .areas{background:var(--cream);padding:120px 0;}
@@ -271,7 +247,7 @@
     color:rgba(255,255,255,0.75);font-size:15.5px;line-height:1.9;
     font-weight:300;max-width:480px;margin-bottom:16px;
   }
-  .about-copy .btn-outline{margin-left:0;}
+  .about-copy .btn-outline{margin-left:0;margin-top:24px;}
   .about-sign{
     margin-top:38px;display:flex;align-items:center;gap:16px;
   }
@@ -303,21 +279,31 @@
   }
   .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:64px;}
   .testi-card{
-    border:1px solid rgba(26,58,122,0.3);padding:40px 32px;
-    background:rgba(255,255,255,0.02);
+    border:none;
+    padding:40px 32px;
+    background:linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(26,58,122,0.05) 100%);
+    border-left:3px solid var(--accent);
+    transition:all .3s ease;
+    position:relative;
+  }
+  .testi-card:hover{
+    background:linear-gradient(135deg, rgba(37,99,235,0.12) 0%, rgba(26,58,122,0.08) 100%);
+    transform:translateY(-4px);
   }
   .testi-quote-mark{
     font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-size:46px;color:var(--accent);line-height:1;margin-bottom:6px;
+    font-size:36px;color:var(--accent);line-height:1;margin-bottom:12px;
+    opacity:0.6;
   }
   .testi-card p{
     font-size:15px;line-height:1.85;color:rgba(255,255,255,0.85);
-    font-weight:300;margin-bottom:26px;min-height:120px;
+    font-weight:300;margin-bottom:26px;min-height:auto;
   }
   .testi-name{
     font-family:'Cormorant Garamond',serif;font-style:italic;
     font-size:18px;color:var(--gray-light);
-    border-top:1px solid rgba(26,58,122,0.25);padding-top:16px;
+    border-top:1px solid rgba(26,58,122,0.3);
+    padding-top:16px;
   }
   .testi-portrait{
     display:flex;justify-content:center;margin-top:70px;
@@ -410,13 +396,19 @@
     .wrap{padding:0 22px;}
     .nav{padding:14px 20px;}
     .brand img{height:32px;}
-    .hero-inner{padding:90px 22px 50px;align-items:flex-end;}
-    .hero h1{font-size:clamp(28px,5vw,48px);max-width:100%;}
-    .hero p{max-width:100%;}
-    .btn-outline{margin-left:0;margin-top:14px;display:block;text-align:center;}
-    .btn-primary{display:block;text-align:center;}
+    .hero{padding-top:60px;min-height:80vh;}
+    .hero-buttons{gap:12px;padding:0 16px;}
+    .btn-primary, .btn-outline{
+      padding:12px 20px;
+      font-size:11px;
+    }
+    .intro{padding:60px 0;}
+    .intro-content{padding:0 16px;}
+    .intro-title{font-size:clamp(24px,6vw,38px);margin-bottom:16px;}
+    .intro-text{font-size:14px;}
     .areas{padding:80px 0;}
     .areas-grid{grid-template-columns:1fr;row-gap:44px;}
+    .area-card{padding:0;border:none;}
     .area-card:nth-child(2n){padding-left:0;}
     .about-copy{padding:56px 24px;}
     .about-img{min-height:340px;}
@@ -424,6 +416,8 @@
     .dif{padding:80px 0;}
     .dif-grid{grid-template-columns:1fr;row-gap:44px;}
     .testi{padding:90px 0;}
+    .testi-grid{grid-template-columns:1fr;gap:20px;}
+    .testi-card{padding:30px 24px;}
     .testi-portrait img{width:120px;height:120px;}
     .cta-copy{padding:56px 24px;}
     .cta-copy h2{font-size:30px;}
@@ -441,12 +435,12 @@
   
   .hero-bg {
     background-size: cover;
-    background-position: right center;
+    background-position: center;
   }
 
   @media (min-width: 1200px) {
     .hero-bg {
-      background-position: right 5% center;
+      background-position: center;
     }
     .about-img img {
       object-position: center 10%;
@@ -491,13 +485,21 @@
 <section class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="hero-inner">
-    <div class="eyebrow">Advocacia Especializada</div>
-    <h1>Excelência jurídica<br>com <em>estratégia e dedicação</em></h1>
-    <p>Atuação especializada em Direito Civil, Imobiliário e Empresarial, com foco em segurança, agilidade e soluções construídas para cada cliente.</p>
-    <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="btn-primary">Agendar Consulta</a>
-    <a href="#sobre" class="btn-outline">Conhecer o Trabalho</a>
+    <div class="hero-buttons">
+      <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="btn-primary">Agendar Consulta</a>
+      <a href="#sobre" class="btn-outline">Conhecer o Trabalho</a>
+    </div>
   </div>
-  <div class="hero-scroll"><span class="line"></span> Role para descobrir</div>
+</section>
+
+<section class="intro" id="intro">
+  <div class="wrap">
+    <div class="intro-content reveal">
+      <div class="intro-eyebrow">Advocacia Especializada</div>
+      <h1 class="intro-title">Excelência jurídica<br>com <em>estratégia e dedicação</em></h1>
+      <p class="intro-text">Atuação especializada em Direito Civil, Imobiliário e Empresarial, com foco em segurança, agilidade e soluções construídas para cada cliente.</p>
+    </div>
+  </div>
 </section>
 
 <section class="areas" id="areas">
@@ -553,7 +555,7 @@
       <a href="#contato" class="btn-outline">Conhecer Mais</a>
       <div class="about-sign">
         <span class="sig-name">Marcelo</span>
-        <span class="sig-role">OAB &mdash; Direito Civil e Imobiliário</span>
+        <span class="sig-role">OAB — Direito Civil e Imobiliário</span>
       </div>
     </div>
   </div>
@@ -600,17 +602,17 @@
     </div>
     <div class="testi-grid">
       <div class="testi-card reveal">
-        <div class="testi-quote-mark">&ldquo;</div>
+        <div class="testi-quote-mark">"</div>
         <p>Profissional excepcional. Conduziu todo o processo com excelência, competência e atenção aos detalhes.</p>
         <div class="testi-name">Roberto M.</div>
       </div>
       <div class="testi-card reveal">
-        <div class="testi-quote-mark">&ldquo;</div>
+        <div class="testi-quote-mark">"</div>
         <p>Segurança, agilidade e um atendimento humanizado. Recomendo de olhos fechados para qualquer situação.</p>
         <div class="testi-name">Fernanda L.</div>
       </div>
       <div class="testi-card reveal">
-        <div class="testi-quote-mark">&ldquo;</div>
+        <div class="testi-quote-mark">"</div>
         <p>Extremamente competente e estratégico. Superou todas as minhas expectativas com resultados excelentes.</p>
         <div class="testi-name">Patricia S.</div>
       </div>
@@ -664,7 +666,7 @@
         <h4>Contato</h4>
         <a href="tel:5511987654321">11 98765-4321</a>
         <a href="mailto:contato@marceloadvocacia.com.br">contato@marceloadvocacia.com.br</a>
-        <p>São Paulo, SP &mdash; Brasil</p>
+        <p>São Paulo, SP — Brasil</p>
       </div>
       <div class="foot-col">
         <h4>Atendimento</h4>
