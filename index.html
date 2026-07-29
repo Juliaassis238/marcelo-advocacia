@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="preload" as="image" href="hero-premium-desktop.jpg" fetchpriority="high" type="image/jpeg">
-  <link rel="preload" as="image" href="hero-mariana-mobile-poster.jpg" fetchpriority="high" media="(max-width: 768px)" type="image/jpeg">
+  <link rel="preload" as="image" href="hero-premium-desktop.webp" fetchpriority="high" type="image/webp">
+  <link rel="preload" as="image" href="hero-mariana-mobile-poster.webp" fetchpriority="high" media="(max-width: 768px)" type="image/webp">
   
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,50 +123,54 @@
 
   /* ===== HERO ===== */
   .hero{
-    position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;
-    background:var(--ink);overflow:hidden;padding-top:70px;
+    position:relative;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center;
+    background:var(--ink);overflow:hidden;
   }
   .hero-bg{
     will-change: transform;
     transform: translateZ(0);
     position:absolute;inset:0;
-    background-image: url('hero-premium-desktop.jpg');
+    background-image: url('hero-premium-desktop.webp');
     background-size:cover;background-position:center;background-repeat: no-repeat;
   }
   @media (max-width: 768px) {
     .hero-bg {
-      background-image: url('hero-mariana-mobile-poster.jpg');
+      background-image: url('hero-mariana-mobile-poster.webp');
       background-position: center top;
     }
     .hero-bg::after {
-      background: linear-gradient(0deg, rgba(10,22,40,0.98) 0%, rgba(10,22,40,0.85) 40%, rgba(10,22,40,0.5) 70%, rgba(10,22,40,0) 100%) !important;
+      background: linear-gradient(0deg, rgba(10,22,40,0.95) 0%, rgba(10,22,40,0.7) 40%, rgba(10,22,40,0.3) 70%, rgba(10,22,40,0) 100%) !important;
     }
+    .hero-inner{padding-top:60px;}
   }
 
   .hero-bg::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(270deg, rgba(10,22,40,0.92) 0%, rgba(10,22,40,0.85) 20%, rgba(10,22,40,0.4) 50%, rgba(10,22,40,0) 80%);
+    background:linear-gradient(0deg, rgba(10,22,40,0.4) 0%, rgba(10,22,40,0.2) 50%, rgba(10,22,40,0.4) 100%);
   }
-  .hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;}
-  .hero-buttons{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
+  .hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;width:100%;}
+  .hero-buttons{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;width:100%;padding:0 20px;}
   .btn-primary{
     display:inline-block;
     background:var(--accent);color:var(--white);
-    padding:16px 34px;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;
+    padding:18px 40px;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;
     font-weight:500;transition:all .35s ease;border:1px solid var(--accent);
+    min-width:240px;text-align:center;
   }
   .btn-primary:hover{background:transparent;color:var(--accent);}
   .btn-outline{
     display:inline-block;
-    color:var(--white);border:1px solid rgba(255,255,255,0.4);
-    padding:16px 30px;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--white);border:1px solid rgba(255,255,255,0.6);
+    padding:18px 40px;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;
     transition:all .35s ease;
+    min-width:240px;text-align:center;
+    backdrop-filter: blur(4px);
   }
-  .btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+  .btn-outline:hover{border-color:var(--accent);color:var(--accent);background:rgba(255,255,255,0.05);}
 
   /* ===== INTRO SECTION ===== */
-  .intro{background:var(--paper);padding:100px 0;}
-  .intro-content{max-width:900px;margin:0 auto;text-align:center;}
+  .intro{background:var(--paper);padding:120px 0;}
+  .intro-content{max-width:900px;margin:0 auto;text-align:center;padding:0 32px;}
   .intro-eyebrow{
     font-family:'Jost',sans-serif;
     font-size:11.5px;
@@ -174,14 +178,14 @@
     text-transform:uppercase;
     color:var(--navy);
     font-weight:500;
-    margin-bottom:16px;
+    margin-bottom:20px;
   }
   .intro-title{
     font-family:'Cormorant Garamond',serif;
-    font-size:clamp(32px,4.5vw,62px);
-    line-height:1.1;
+    font-size:clamp(32px,5vw,56px);
+    line-height:1.15;
     color:var(--text-dark);
-    margin-bottom:24px;
+    margin-bottom:28px;
     font-weight:500;
   }
   .intro-title em{
@@ -190,10 +194,12 @@
     font-weight:400;
   }
   .intro-text{
-    font-size:15px;
-    line-height:1.8;
+    font-size:16px;
+    line-height:1.9;
     color:var(--text-mute);
     font-weight:300;
+    max-width:700px;
+    margin:0 auto;
   }
 
   /* ===== AREAS ===== */
@@ -247,7 +253,7 @@
     color:rgba(255,255,255,0.75);font-size:15.5px;line-height:1.9;
     font-weight:300;max-width:480px;margin-bottom:16px;
   }
-  .about-copy .btn-outline{margin-left:0;margin-top:24px;}
+  .about-copy .btn-outline{margin-left:0;margin-top:24px;min-width:auto;padding:16px 34px;}
   .about-sign{
     margin-top:38px;display:flex;align-items:center;gap:16px;
   }
@@ -396,29 +402,27 @@
     .wrap{padding:0 22px;}
     .nav{padding:14px 20px;}
     .brand img{height:32px;}
-    .hero{padding-top:60px;min-height:80vh;}
-    .hero-buttons{gap:12px;padding:0 16px;}
+    .hero{height:100vh;height:100svh;}
+    .hero-buttons{gap:16px;padding:0 24px;}
     .btn-primary, .btn-outline{
-      padding:12px 20px;
-      font-size:11px;
+      padding:16px 30px;
+      font-size:12px;
+      min-width:100%;
     }
-    .intro{padding:60px 0;}
-    .intro-content{padding:0 16px;}
-    .intro-title{font-size:clamp(24px,6vw,38px);margin-bottom:16px;}
-    .intro-text{font-size:14px;}
+    .intro{padding:80px 0;}
+    .intro-content{padding:0 20px;}
+    .intro-title{font-size:clamp(28px,7vw,42px);margin-bottom:20px;}
+    .intro-text{font-size:15px;}
     .areas{padding:80px 0;}
     .areas-grid{grid-template-columns:1fr;row-gap:44px;}
     .area-card{padding:0;border:none;}
-    .area-card:nth-child(2n){padding-left:0;}
     .about-copy{padding:56px 24px;}
     .about-img{min-height:340px;}
-    .about-img img{object-position:center 30%;}
     .dif{padding:80px 0;}
     .dif-grid{grid-template-columns:1fr;row-gap:44px;}
     .testi{padding:90px 0;}
     .testi-grid{grid-template-columns:1fr;gap:20px;}
     .testi-card{padding:30px 24px;}
-    .testi-portrait img{width:120px;height:120px;}
     .cta-copy{padding:56px 24px;}
     .cta-copy h2{font-size:30px;}
     .foot-grid{grid-template-columns:1fr;gap:38px;padding-bottom:50px;}
@@ -439,9 +443,6 @@
   }
 
   @media (min-width: 1200px) {
-    .hero-bg {
-      background-position: center;
-    }
     .about-img img {
       object-position: center 10%;
     }
@@ -542,8 +543,8 @@
   <div class="about-grid">
     <div class="about-img reveal">
       <picture>
-        <source srcset="about-mariana.jpg" type="image/jpeg">
-        <img src="about-mariana.jpg" alt="Dr. Marcelo no escritório" loading="lazy" decoding="async" id="about-photo">
+        <source srcset="about-desktop.webp" type="image/webp">
+        <img src="about-desktop.webp" alt="Dr. Marcelo no escritório" loading="lazy" decoding="async" id="about-photo">
       </picture>
     </div>
     <div class="about-copy reveal">
@@ -619,8 +620,8 @@
     </div>
     <div class="testi-portrait reveal">
       <picture>
-        <source srcset="mariana-testi.jpg" type="image/jpeg">
-        <img src="mariana-testi.jpg" alt="Dr. Marcelo" loading="lazy" decoding="async">
+        <source srcset="mariana-testi.webp" type="image/webp">
+        <img src="mariana-testi.webp" alt="Dr. Marcelo" loading="lazy" decoding="async">
       </picture>
     </div>
   </div>
@@ -636,8 +637,8 @@
     </div>
 <div class="cta-img reveal">
       <picture>
-        <source srcset="mariana-contact.jpg" type="image/jpeg">
-        <img src="mariana-contact.jpg" alt="Dr. Marcelo" loading="lazy" decoding="async">
+        <source srcset="mariana-contact.webp" type="image/webp">
+        <img src="mariana-contact.webp" alt="Dr. Marcelo" loading="lazy" decoding="async">
       </picture>
     </div>
   </div>
